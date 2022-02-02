@@ -33,17 +33,19 @@ docker run hello-world
 
 ## Customize your VM.
 
-If you want install other packages or add other config in you VM manually, you can run `vagrant ssh`.
-
-If you need install other packges you can add your packages in Vagrantfile.
+If you need install other packges you can add put in. (If you added new packages in Vagrantfile you need run `vagrant reload`, it mount again the VM)
 
 ```
 config.vm.provision "shell", inline: <<-SHELL
     # HERE YOU WRITE THE PACKAGES YOU WANT
-   SHELL
+SHELL
 ```
 
-If you added new packages in Vagrantfile you need run `vagrant reload` (It mount again the VM).
+Maybe you need sync project that need docker, put in this line for sync it. (It should be the same route)
+
+```
+  config.vm.synced_folder "MY_LOCAL_PROJECT", "MY_PROJECT_IN_VM"
+```
 
 If you need copy files in some path of VM, you can use
 
@@ -61,11 +63,13 @@ Also you can expose ports in your VM:
 
 Add in your .bashrc or .zshrc
 
+Configure Docker CLI to use the Vagrant VM
+
 ```
 export DOCKER_HOST=ssh://vagrant@127.0.0.1:2222
 ```
 
-Add the Vagrant ssh key to the host known keys and configure Docker CLI to use the Vagrant VM.
+Add the Vagrant ssh key to the host known keys.
 
 ```
 ssh-add --apple-use-keychain ~/.vagrant/machines/default/virtualbox/private_key
@@ -96,5 +100,21 @@ Every day you can use `docker-start` for get up docker or `docker-down` for susp
 
 # Config your VSCode
 Go to preference, search docker and in `Docker: Host` put `ssh://vagrant@127.0.0.1:2222` (the same value that you use in the variable DOCKER_HOST)
+
+# Normal command to use vagrant
+
+```
+# Create or turn on the VM
+vagrant up
+
+# Stop vm
+vagrant suspend
+
+# Reload VM
+vagrant reload
+
+# Delete VM
+vagrant destroy
+```
 
 Happy coding! 🥳
