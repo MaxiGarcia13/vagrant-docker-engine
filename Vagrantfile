@@ -21,14 +21,16 @@ Vagrant.configure("2") do |config|
   end
 
   # Projects Folder that it need docker.
-  # config.vm.synced_folder "/Users/maxigarcia/Workspace/job/git/", "/Users/maxigarcia/Workspace/job/git/"
+  # config.vm.synced_folder "MY_LOCAL_PROJECT", "MY_PROJECT_IN_VM"
 
   config.vm.provision "file", source: "./docker.service", destination: "/home/vagrant/docker.service"
-  config.vm.provision "file", source: "./daemon.json", destination: "/etc/docker/daemon.json"
+  config.vm.provision "file", source: "./daemon.json", destination: "/tmp/daemon.json"
   config.vm.provision "shell", inline: <<-SHELL
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
     sudo apt install docker-compose
+
+    sudo mv /tmp/daemon.json /etc/docker/.
 
     sudo addgroup docker
     sudo adduser vagrant docker
