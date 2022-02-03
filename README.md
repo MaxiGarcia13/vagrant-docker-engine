@@ -1,4 +1,4 @@
-# First you need to undertand how Vagrant read the Vagrant file
+# First you need to undertand how Vagrant looking for the Vagrantfile
 
 When you run any vagrant command, vagrant looking for the first Vagrantfile it can find, starting in the current directory until it find it in previus folders.
 
