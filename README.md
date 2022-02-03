@@ -5,7 +5,7 @@ When you run any vagrant command, vagrant looking for the first Vagrantfile it c
 For Example:
 
 ```
-# First try to find here 🧐
+# First try to find in current directory 🧐
 /home/MaxiGarcia13/projects/vagrant-docker-engine/ 
 
 # If it don't find it continue to find in the previous folder 🙄
