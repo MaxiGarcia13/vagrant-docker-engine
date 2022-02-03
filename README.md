@@ -1,3 +1,27 @@
+# First you need to undertand how Vagrant read the Vagrant file
+
+When you run any vagrant command, vagrant looking for the first Vagrantfile it can find, starting in the current directory until it find it in previus folders.
+
+For Example:
+
+```
+# First try to find here 🧐
+/home/MaxiGarcia13/projects/vagrant-docker-engine/ 
+
+# If it don't find it continue to find in the previous folder 🙄
+/home/MaxiGarcia13/projects/ 
+
+# keep going 😔
+/home/MaxiGarcia13/ 
+
+# keep going 🤨
+/home/
+
+# At last it find here and read this file 🥳
+/Vagrantfile 
+```
+
+
 # Setting Up Your Computer
 
 First yo make sure that you dont have docker descktop and docker cli in you computer.
@@ -59,7 +83,7 @@ Also you can expose ports in your VM:
   config.vm.network "forwarded_port", guest: 9230, host: 9230
 ```
 
-# Last settings
+# At last
 
 Add in your .bashrc or .zshrc
 
@@ -117,4 +141,4 @@ vagrant reload
 vagrant destroy
 ```
 
-Happy coding! 🥳
+🥳
