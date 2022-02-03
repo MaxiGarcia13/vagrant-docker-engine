@@ -1,4 +1,24 @@
-# First you need to undertand how Vagrant looking for the Vagrantfile
+# Setting Up Your Computer
+
+First yo make sure that you dont have docker descktop and docker cli in you computer.
+
+If you have installed, remove it 🗑.
+
+Then, you need install virtualbox, vagrant and docker-compose.
+
+## On Mac OS
+
+```
+brew install virtualbox
+
+brew install vagrant
+
+brew install docker
+
+brew install docker-compose
+```
+
+# First you need to undertand how Vagrant looking for the Vagrantfile.
 
 When you run any vagrant command, vagrant looking for the first Vagrantfile it can find, starting in the current directory until it find it in previus folders.
 
@@ -19,27 +39,6 @@ For Example:
 
 # At last it find here and read this file 🥳
 /Vagrantfile 
-```
-
-
-# Setting Up Your Computer
-
-First yo make sure that you dont have docker descktop and docker cli in you computer.
-
-If you have installed, remove it 🗑.
-
-Then, you need install virtualbox, vagrant and docker-compose.
-
-## On Mac OS
-
-```
-brew install virtualbox
-
-brew install vagrant
-
-brew install docker
-
-brew install docker-compose
 ```
 
 # Setting Up Vagrant
