@@ -26,19 +26,19 @@ For Example:
 
 ```
 # First try to find in current directory 🧐
-/home/MaxiGarcia13/projects/vagrant-docker-engine/ 
+/home/MaxiGarcia13/projects/vagrant-docker-engine/
 
 # If it don't find it continue to find in the previous folder 🙄
-/home/MaxiGarcia13/projects/ 
+/home/MaxiGarcia13/projects/
 
 # keep going 😔
-/home/MaxiGarcia13/ 
+/home/MaxiGarcia13/
 
 # keep going 🤨
 /home/
 
 # At last it find here and read this file 🥳
-/Vagrantfile 
+/Vagrantfile
 ```
 
 # Setting Up Vagrant
@@ -92,10 +92,11 @@ Configure Docker CLI to use the Vagrant VM
 export DOCKER_HOST=ssh://vagrant@127.0.0.1:2222
 ```
 
+### On Mac OS
 Add the Vagrant ssh key to the host known keys.
 
 ```
-ssh-add --apple-use-keychain ~/.vagrant/machines/default/virtualbox/private_key
+ssh-add --apple-use-keychain [ROUTE_OF_YOUR_VAGRANT_PROJECT]/.vagrant/machines/default/virtualbox/private_key
 ```
 
 ## Test docker 😱
@@ -113,7 +114,7 @@ In case that you have an error in the output of this command, try running the co
 You can create the aliases in your `.zshrc` or in your `.bashrc` for turn on docker. (when turn on your machine the VM maybe is turn off, you should turn on it every day).
 
 ```
-alias vagrant-add-private-key="ssh-add --apple-use-keychain ~/.vagrant/machines/default/virtualbox/private_key"
+alias vagrant-add-private-key="ssh-add --apple-use-keychain [ROUTE_OF_YOUR_VAGRANT_PROJECT]/.vagrant/machines/default/virtualbox/private_key"
 
 alias docker-start="vagrant-add-private-key && vagrant up"
 alias docker-down="vagrant suspend"
