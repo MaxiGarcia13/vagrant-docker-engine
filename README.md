@@ -92,7 +92,8 @@ Configure Docker CLI to use the Vagrant VM
 export DOCKER_HOST=ssh://vagrant@127.0.0.1:2222
 ```
 
-### On Mac OS
+### On Mac OS
+
 Add the Vagrant ssh key to the host known keys.
 
 ```
@@ -114,15 +115,14 @@ In case that you have an error in the output of this command, try running the co
 You can create the aliases in your `.zshrc` or in your `.bashrc` for turn on docker. (when turn on your machine the VM maybe is turn off, you should turn on it every day).
 
 ```
-alias vagrant-add-private-key="ssh-add --apple-use-keychain [ROUTE_OF_YOUR_VAGRANT_PROJECT]/.vagrant/machines/default/virtualbox/private_key"
-
-alias docker-start="vagrant-add-private-key && vagrant up"
-alias docker-down="vagrant suspend"
+alias docker-start="node [ROUTE_OF_YOUR_VAGRANT_PROJECT]/bin/script_up.js"
+alias docker-down="node [ROUTE_OF_YOUR_VAGRANT_PROJECT]/bin/script_down.js"
 ```
 
 Every day you can use `docker-start` for get up docker or `docker-down` for suspend your docker.
 
-# Config your VSCode
+# Config your VSCode
+
 Go to preference, search docker and in `Docker: Host` put `ssh://vagrant@127.0.0.1:2222` (the same value that you use in the variable DOCKER_HOST)
 
 # Normal command to use vagrant

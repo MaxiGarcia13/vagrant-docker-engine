@@ -24,15 +24,23 @@ Vagrant.configure("2") do |config|
   # config.vm.synced_folder "/Users/maxigarcia/Workspace", "/Users/maxigarcia/Workspace"
 
   config.vm.provision "file", source: "./daemon.json", destination: "/tmp/daemon.json"
+  config.vm.provision "file", source: "./hosts", destination: "/tmp/hosts"
+  config.vm.provision "file", source: "./.bash_variables", destination: "/tmp/.bash_variables"
+
   config.vm.provision "shell", inline: <<-SHELL
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
     sudo apt install -y docker-compose
 
-    sudo mv /tmp/daemon.json /etc/docker/.
-
     sudo addgroup docker
     sudo adduser vagrant docker
+
+    sudo mv /tmp/daemon.json /etc/docker/.
+    sudo mv /tmp/hosts /etc/.
+    sudo mv /tmp/.bash_variables /home/vagrant/.
+
+    echo "if [ -f ~/.bash_variables ]; then . ~/.bash_variables; fi" | tee -a /home/vagrant/.bashrc > /dev/null
+    source /home/vagrant/.bashrc
 
     systemctl daemon-reload
     systemctl restart docker.service
