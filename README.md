@@ -112,14 +112,21 @@ In case that you have an error in the output of this command, try running the co
 
 ## 🤯 Suggestion
 
-You can create the aliases in your `.zshrc` or in your `.bashrc` for turn on docker. (when turn on your machine the VM maybe is turn off, you should turn on it every day).
+You can install [@maxigarcia/vagrant-cli](https://github.com/MaxiGarcia13/vagrant-cli) to handle vagrantfiles.
 
 ```
-alias docker-start="node [ROUTE_OF_YOUR_VAGRANT_PROJECT]/bin/script_up.js"
-alias docker-down="node [ROUTE_OF_YOUR_VAGRANT_PROJECT]/bin/script_down.js"
-```
+npm i -g @maxigarcia/vagrant-cli
 
-Every day you can use `docker-start` for get up docker or `docker-down` for suspend your docker.
+# How use it
+
+# You can load existing vagrantfile for you use it to up, down or connect by ssh.
+
+manage-vagrantfiles
+
+# When you have vagrantfile loaded you can choose one to up, down or connect by ssh.
+
+handle-vagrantfile
+```
 
 # Config your VSCode
 
